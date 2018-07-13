@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<video preload="auto" id="bgvid" loop width="100%" muted="muted" autoplay="true">
+    <source src="{% static 'video/main.mp4' %}" type="video/mp4">
+</video>
+
+<div class="jumbotron">
+    <div class="container">
+        <h2>he</h2>
+    </div>
+</div>
+
+{% endblock %}

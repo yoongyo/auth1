@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Today's Friend</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+</head>
+<body>
+    <!-- navbar_top -->
+    <style>
+        .navbar-default{
+            background-color: #0F3A72;
+        }
+        .container-fluid  ul  li{
+            color: white;
+        }
+
+        @media (min-width: 768px){
+            /* 큰 화면 전용 설정 */
+            .container-fluid{
+                padding:0 20%;
+            }
+            .fcontent {
+                padding:0 20%;
+                display: flex;
+            }
+        }
+        @media (max-width: 786px) {
+            .fcontent{
+                display:flex;
+            }
+        }
+        #login-dp{
+            min-width: 250px;
+            padding: 14px 14px 0;
+            overflow:hidden;
+            background-color:rgba(255,255,255,.8);
+        }
+        #login-dp .help-block{
+            font-size:12px    
+        }
+        #login-dp .bottom{
+            background-color:rgba(255,255,255,.8);
+            border-top:1px solid #ddd;
+            clear:both;
+            padding:14px;
+        }
+        #login-dp .social-buttons{
+            margin:12px 0    
+        }
+        #login-dp .social-buttons a{
+            width: 49%;
+        }
+        #login-dp .form-group {
+            margin-bottom: 10px;
+        }
+        .btn-fb{
+            color: #fff;
+            background-color:#3b5998;
+        }
+        .btn-fb:hover{
+            color: #fff;
+            background-color:#496ebc 
+        }
+        .btn-tw{
+            color: #fff;
+            background-color:#55acee;
+        }
+        .btn-tw:hover{
+            color: #fff;
+            background-color:#59b5fa;
+        }
+        @media(max-width:768px){
+            #login-dp{
+                background-color: inherit;
+                color: #fff;
+            }
+            #login-dp .bottom{
+                background-color: inherit;
+                border-top:0 none;
+            }
+        }
+    </style>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button style="border:2px solid #333333;" type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#list" aria-expanded="false">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'travel:main' %}">Today's Friend</a>
+            </div>
+            <div class="collapse navbar-collapse" id="list">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href=#>Laguage</a></li>
+                    <li><a href="{% url 'travel:local_list' %}">Tour</a></li>
+                    <li><a href="{% url 'travel:post_new' %}">Become a guide</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                            <li><p class="navbar-text">Already have an account?</p></li>
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                                <ul id="login-dp" class="dropdown-menu">
+                                    <li>
+                                         <div class="row">
+                                                <div class="col-md-12">
+                                                    Login via
+                                                    <div class="social-buttons">
+                                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                                        <form action="" method="post">
+                                                            {% csrf_token %}
+                                                            <table>
+                                                                {{ form.as_table }}
+                                                            </table>
+                                                            <input type="submit" />
+                                                        </form>
+                                                    </div>
+                                                    or
+                                                     <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                            {% csrf_token %}
+                                                            <table>
+                                                                {{ form.as_table }}
+                                                            </table>
+                                                            <input type="submit" />
+                                                            <div class="form-group">
+                                                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                                                 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                                                 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                                                 <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                 <label>
+                                                                 <input type="checkbox"> keep me logged-in
+                                                                 </label>
+                                                            </div>
+                                                     </form>
+                                                </div>
+                                                <div class="bottom text-center">
+                                                    New here ? <a href="#"><b>Join Us</b></a>
+                                                </div>
+                                         </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="height:50px;"></div>
+    {% block content %}
+    {% endblock %}
+    <footer style="background-color:rgb(187, 184, 184)">
+        <div class="container">
+            <br>
+            <div class="row" style="margin:0 auto">
+                <p class="text-center">
+                    회사소개 &nbsp; |&emsp;
+                    이용약관 &nbsp; |&emsp;
+                    개인정보 처리방침 &nbsp; |&emsp;
+                    위치기반 서비스 이용약관 &nbsp; |&emsp;
+                    중개사 사이트 바로가기
+                </p>
+            </div>
+            <br>
+            <p class="text-center">상호 : Tryground&emsp; 대표 : 김희인 &emsp;주소: 경기도 광명시 소하동 1391-4번지(14328)</p>
+            <p class="text-center">서비스 이용문의 : 010-5016-1069 &emsp;&emsp;이메일 : gmldls420@naver.com </p>
+            <br>
+            <br>
+            <p class="text-center">
+                Copyright @ Tryground. All Right Reserved.
+            </p>
+        </div>
+    </footer>
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in local_list %}
+    <div style="border:1px solid black">
+    <ul>
+        <div style="border:1px solid black; width:30%; height:30%;">
+        <li><a href="{{ i.name }}" style="text-decoration: none;"><h2>"{{ i.title }}"</h2></a><br>{{ i.price }} <br> {{ i.time }}<br>Enable Language : {{ i.language }}<br>visited Country : {{ i.visited_country }}<br>Interset : {{ i.interest }}<br></li>
+        </div>
+    </ul>
+    </div>
+
+
+
+    ////////////////////////////////
+    <div class="container" style="background-color:rgb(243,243,243); margin:15px auto; padding:10px; ">
+            <div class="col-md-9">
+                <div class="container">
+                    <article class="box">
+                        <a href="#">
+                            <figure class="col-sm-3 col-xs-5">
+                                <img src="서울.jpeg" style="max-height:140px; width:100%">
+                                <div style="text-align:center; background:#fff;padding:3px 10px">Walking Tour</div>
+                            </figure>
+                            <div class="detail result col-sm-9 col-xs-7">
+                                <div class="clearfix row">
+                                    <h4 class="box-title col-xs-9">
+                                        Free Tour in Seoul<br>
+                                        <small>Provided by Generaion Tours</small>
+                                    </h4>
+                                    <span class="price col-xs-3">
+                                        <small>from</small>"$ 0"<br>
+                                        <small>Tip based</small>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="detail result col-sm-7 col-xs-4" style="height:58px">
+                                    Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built on jQuery.
+                                </div>
+                            
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>
+
+{% endblock %}

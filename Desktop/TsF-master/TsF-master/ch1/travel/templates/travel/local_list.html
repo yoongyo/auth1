@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+
+<img src="{% static 'img/top.jpg' %}" width="100%" height="300">
+
+<div class="jumbotron">
+
+</div>
+
+
+
+<div class="container">
+    <div class="center-block" style="width:67.2%">
+        <a href="/travel/local/Seoul"><img src="{% static 'img/상품지역/Seoul1.jpg' %}" style="max-height:200px; width:380px;"></a>
+        <a href="/travel/local/Seoul"><img src="{% static 'img/상품지역/Seoul2.jpg' %}" style="max-height: 200px; width:380px;"></a>
+    </div>
+    <div class="center-block" style="width:67.2%">
+        <a href="/travel/local/Busan"><img src="{% static 'img/상품지역/Busan.jpg' %}" style="max-height:200px; width:380px;"></a>
+        <a href="/travel/local/Gyeongju"><img src="{% static 'img/상품지역/Gyeongju.JPG' %}" style="max-height: 200px; width:380px;"></a>
+    </div>
+    <div class="center-block" style="width:67.2%">
+        <a href="/travel/local/Jeju"><img src="{% static 'img/상품지역/Jeju.jpg' %}" style="max-height:200px; width:380px;"></a>
+        <a href="/travel/local/Jeonju"><img src="{% static 'img/상품지역/Jeonju.jpg' %}" style="max-height: 200px; width:380px;"></a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center"></h2>
+</div>
+
+{% endblock %}
